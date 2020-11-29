@@ -31,5 +31,9 @@ go build hello.go
 ```
 after the build, execute
 ```
-./build
+./hello
 ```
+
+## Resources & Reference
+* [Go Tutorialspoint](https://www.tutorialspoint.com/go/index.htm)
+* [Golang Programs](https://www.golangprograms.com/go-language.html)

@@ -10,6 +10,7 @@ import (
 func main() {
    inputCml1()
    inputCml2()
+   operatorsInc()
 }
 
 
@@ -27,4 +28,10 @@ func inputCml2() {
   fmt.Print("Enter Another Number: [Hit Return to end] ")
   fmt.Scanf("%d",&num2)
   fmt.Printf("The sum of %d and %d = %d",num1,num2,(num1+num2))
+}
+
+func operatorsInc(){
+  const NUM1 int = 10
+  const NUM2 int = 10
+  fmt.Println(NUM1 == NUM2)
 }
