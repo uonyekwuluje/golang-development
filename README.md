@@ -18,8 +18,18 @@ You should see
 go version go1.15.5 linux/amd64
 ```
 
-
+## Run Go Code
 Test Sample Code
 ```
 go run hello.go
+```
+
+## Build Go Code
+Test Sample Code
+```
+go build hello.go
+```
+after the build, execute
+```
+./build
 ```
