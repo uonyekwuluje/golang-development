@@ -15,7 +15,7 @@ jobs:
         run: |
           ls
 
- go-codes:
+  go-codes:
     name: Build Go Codes
     runs-on: 'ubuntu-latest'
 
