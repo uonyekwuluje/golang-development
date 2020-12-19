@@ -3,8 +3,8 @@ name: GoLang Project Pipelines
 on: push
 
 jobs:
-  go-main:
-    name: Go Jobs
+  go-prereqs:
+    name: Go Prerequisites
     runs-on: 'ubuntu-latest'
 
     steps:
@@ -12,5 +12,17 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test Check Out
+        run: |
+          ls
+
+ go-codes:
+    name: Build Go Codes
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Checkout code2
+        uses: actions/checkout@v2
+
+      - name: Test Check Out2
         run: |
           ls
