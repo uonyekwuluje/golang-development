@@ -6,23 +6,26 @@ jobs:
   go-prereqs:
     name: Go Prerequisites
     runs-on: 'ubuntu-latest'
+    env:
+       GO_VERSION: 1.15.5
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Test Check Out
+      - name: Install Go ${{ env.GO_VERSION }}
         run: |
-          ls
+          sudo wget https://dl.google.com/go/go${{ env.GO_VERSION }}.linux-amd64.tar.gz
+          sudo tar -C /usr/local -xzf go${{ env.GO_VERSION }}.linux-amd64.tar.gz
+          sudo rm go${{ env.GO_VERSION }}.linux-amd64.tar.gz
+          /usr/local/go/bin/go version
+
 
   go-codes:
     name: Build Go Codes
     runs-on: 'ubuntu-latest'
 
     steps:
-      - name: Checkout code2
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Test Check Out2
+      - name: Test Hello Code
         run: |
-          ls
+          go run hello.go
