@@ -1,4 +1,4 @@
-name: GoLang Project Pipelines
+name: GoLang Project Pipeline
 
 on: push
 
@@ -29,3 +29,7 @@ jobs:
       - name: Test Hello Code
         run: |
           go run hello.go
+
+      - name: Other Codes
+        run: |
+          go run console_code/console-code.go 3 4
