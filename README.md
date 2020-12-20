@@ -4,7 +4,7 @@ Go Development
 ## Install Go
 Install GO In linux
 ```
-GOVERSION="1.15.5"
+GOVERSION="1.15.6"
 sudo wget https://dl.google.com/go/go${GOVERSION}.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go${GOVERSION}.linux-amd64.tar.gz
 sudo rm go${GOVERSION}.linux-amd64.tar.gz
