@@ -37,3 +37,4 @@ after the build, execute
 ## Resources & Reference
 * [Go Tutorialspoint](https://www.tutorialspoint.com/go/index.htm)
 * [Golang Programs](https://www.golangprograms.com/go-language.html)
+* [Go Web Sample Code](https://github.com/PacktPublishing/Go-Web-Development-Cookbook)
