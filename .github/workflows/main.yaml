@@ -5,8 +5,8 @@ on: push
 jobs:
   go-prereqs:
     name: Go Prerequisites
-    #runs-on: 'ubuntu-latest'
-    runs-on: 'golang'
+    runs-on: 'ubuntu-latest'
+    #runs-on: 'golang'
     env:
        GO_VERSION: 1.15.6
 
@@ -21,11 +21,10 @@ jobs:
 
   go-codes:
     name: Build Go Codes
-    #runs-on: 'ubuntu-latest'
-    runs-on: 'golang'
+    runs-on: 'ubuntu-latest'
+    #runs-on: 'golang'
     env:
        GO_PATH: "/usr/local/go/bin/go"
-
 
     steps:
       - name: Checkout Repository
