@@ -16,6 +16,9 @@ jobs:
           sudo wget https://dl.google.com/go/go${{ env.GO_VERSION }}.linux-amd64.tar.gz
           sudo tar -C /usr/local -xzf go${{ env.GO_VERSION }}.linux-amd64.tar.gz
           sudo rm go${{ env.GO_VERSION }}.linux-amd64.tar.gz
+
+      - name: Test Prerequisites
+        run: |
           /usr/local/go/bin/go version
 
 
@@ -34,6 +37,6 @@ jobs:
         run: |
           ${{ env.GO_PATH }} run hello.go
 
-      - name: Other Codes
-        run: |
-          ${{ env.GO_PATH }} run console_code/console-code.go 3 4
+      #- name: Other Codes
+      #  run: |
+      #    ${{ env.GO_PATH }} run console_code/console-code.go 3 4
