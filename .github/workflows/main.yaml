@@ -33,9 +33,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Test Hello Code
+      - name: Check Go Executables
         run: |
-          which go
+         ls -l /usr/local
           #${{ env.GO_PATH }} run hello.go
 
       #- name: Other Codes
