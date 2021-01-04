@@ -35,7 +35,8 @@ jobs:
 
       - name: Test Hello Code
         run: |
-          ${{ env.GO_PATH }} run hello.go
+          which go
+          #${{ env.GO_PATH }} run hello.go
 
       #- name: Other Codes
       #  run: |
