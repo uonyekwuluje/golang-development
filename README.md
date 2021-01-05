@@ -34,8 +34,7 @@ after the build, execute
 ./hello
 ```
 
-## Build Status
-[![Code Build Status](https://github.com/uonyekwuluje/golang-development/workflows/Golang-Builds/badge.svg)] (https://github.com/uonyekwuluje/golang-development/actions)
+## Build Status: ![Code Build Status](https://github.com/uonyekwuluje/golang-development/workflows/Golang-Builds/badge.svg)
 
 ## Resources & Reference
 * [Go Tutorialspoint](https://www.tutorialspoint.com/go/index.htm)

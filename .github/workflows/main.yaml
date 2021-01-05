@@ -5,7 +5,6 @@ on: [push]
 jobs:
   build-prereqs:
     runs-on: self-hosted
-
     container:
       image: golang:1.14-buster   
 
@@ -15,9 +14,8 @@ jobs:
 
       - name: Run Hello World
         run: |
-          go version
           go run hello.go
 
-      #- name: Run Console App
-      #  run: |
-      #    go run console_code/console-code.go 3 4
+      - name: Run Console App
+        run: |
+          go run console_code/console-code.go 3 4
