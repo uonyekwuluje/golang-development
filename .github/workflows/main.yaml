@@ -1,4 +1,4 @@
-name: GoLang Project Pipeline
+name: Pipeline Container Test
 
 on: [push]
 
