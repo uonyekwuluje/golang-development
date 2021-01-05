@@ -1,13 +1,9 @@
-name: Pipeline Container Test
+name: Golang-Builds
 
 on: [push]
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
-  go-build:
+  build-prereqs:
     runs-on: self-hosted
 
     container:
