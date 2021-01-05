@@ -19,7 +19,7 @@ jobs:
 
       - name: Run Hello World
         run: |
-          go --version
+          go version
           go run hello.go
 
       #- name: Run Console App
