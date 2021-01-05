@@ -10,8 +10,8 @@ jobs:
   build:
     runs-on: self-hosted
 
-    container:
-      image: golang:1.14-buster   
+    #container:
+    #  image: golang:1.14-buster   
 
     steps:
       - name: Checkout Repository
@@ -19,7 +19,8 @@ jobs:
 
       - name: Run Hello World
         run: |
-          go --version
+          #go --version
+          whoami
           #go run hello.go
 
       #- name: Run Console App
