@@ -1,9 +1,9 @@
-name: Golang-Builds
+name: App-Deployment
 
 on: [push]
 
 jobs:
-  build-prereqs:
+  build-ci-prereqs:
     runs-on: self-hosted
     container:
       image: golang:1.14-buster   
@@ -12,20 +12,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Run Hello World
+      - name: Run Deploy Hello World
         run: |
           go run hello.go
 
-
-  go-code-builds:
-    runs-on: self-hosted
-    container:
-      image: golang:1.14-buster
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Run Console App
+      - name: Run Deploy Console App
         run: |
           go run console_code/console-code.go 3 4
