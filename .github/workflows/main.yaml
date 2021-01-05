@@ -1,45 +1,18 @@
 name: GoLang Project Pipeline
 
-on: [push, pull_request]
-
-env:
-  GO_VERSION: 1.15.6
-  GO_PATH: "/usr/local/go/bin/go"
+on: [push]
 
 defaults:
   run:
     shell: bash
 
 jobs:
-  go-prereqs:
-    name: Go Prerequisites
-    runs-on: 'ubuntu-latest'
-
-    steps:
-      - name: Install Go ${{ env.GO_VERSION }}
-        run: |
-          sudo wget https://dl.google.com/go/go${{ env.GO_VERSION }}.linux-amd64.tar.gz
-          sudo tar -C /usr/local -xzf go${{ env.GO_VERSION }}.linux-amd64.tar.gz
-          sudo rm go${{ env.GO_VERSION }}.linux-amd64.tar.gz
-
-      - name: Test Prerequisites
-        run: |
-          ${{ env.GO_PATH }} version
-
-
-  go-codes:
-    name: Build Go Codes
-    runs-on: 'ubuntu-latest'
+  build:
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-      - name: Install Go ${{ env.GO_VERSION }}
-        run: |
-          sudo wget https://dl.google.com/go/go${{ env.GO_VERSION }}.linux-amd64.tar.gz
-          sudo tar -C /usr/local -xzf go${{ env.GO_VERSION }}.linux-amd64.tar.gz
-          sudo rm go${{ env.GO_VERSION }}.linux-amd64.tar.gz
 
       - name: Run Hello World
         run: |
