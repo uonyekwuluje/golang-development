@@ -16,6 +16,17 @@ jobs:
         run: |
           go run hello.go
 
+
+  go-code-builds:
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Run Console App
         run: |
-          go run console_code/console-code.go 3 4
+          go run console_code/console-code1.go 3 4
+
