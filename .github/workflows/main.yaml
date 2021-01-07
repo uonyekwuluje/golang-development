@@ -34,7 +34,7 @@ jobs:
 
       - name: Make All
         run: |
-          make all
+          makeq all
 
 
   go-code-builds:
