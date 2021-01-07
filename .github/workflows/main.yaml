@@ -37,7 +37,7 @@ jobs:
       - name: Run Two Sum Algorithm
         run: |
           cd datastructure_algorithms/two_sum/
-          go run 1twosum.go
+          go run twosum.go
           go test -v -run TestTwoSum1
           go test -v -run TestTwoSum2
 
@@ -47,7 +47,7 @@ jobs:
         env:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
             SLACK_TITLE: Build Succeeded
-            SLACK_COLOR: #00cc00
+            SLACK_COLOR: '#00cc00'
 
       - name: Slack Notification Failure
         if: ${{ failure() }}
@@ -55,4 +55,4 @@ jobs:
         env:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
             SLACK_TITLE: Build Failed
-            SLACK_COLOR: #ff0000
+            SLACK_COLOR: '#ff0000'
