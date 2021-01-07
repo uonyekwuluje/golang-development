@@ -1,0 +1,107 @@
+name: Golang-Builds
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  check_suite:
+    types:
+      - completed
+  status: {}
+
+jobs:
+  build-prereqs:
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster   
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Hello World
+        run: |
+          go run hello.go
+
+      #- name: PR Slack Notification
+      #  uses: rtCamp/action-slack-notify@v2
+      #  env:
+      #      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #      SLACK_TITLE: Begining Pull Request Test
+
+  go-make:
+    needs: [build-prereqs]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Make All
+        run: |
+          make all
+
+
+  go-code-builds:
+    needs: [build-prereqs]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Console App
+        run: |
+          go run console_code/console-code.go 3 4
+
+
+  uche-algorithm-tests:
+    needs: [build-prereqs]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Two Sum
+        run: |
+          cd datastructure_algorithms/two_sum/
+          go run twosum1.go
+          go test -v -run TestTwoSum1
+          go test -v -run TestTwoSum2
+
+
+  slack-notifications:
+    #needs: [go-make,go-code-builds,uche-algorithm-tests]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Slack Notifications
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_TITLE: Build Succeeded
+            SLACK_COLOR: green
+
+      - name: Slack Notifications
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_TITLE: Build Failed
+            SLACK_COLOR: red

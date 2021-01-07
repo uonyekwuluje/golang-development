@@ -7,9 +7,13 @@ on:
   pull_request:
     branches:
       - main
+  check_suite:
+    types:
+      - completed
+  status: {}
 
 jobs:
-  build-prereqs:
+  build:
     runs-on: self-hosted
     container:
       image: golang:1.14-buster   
@@ -22,49 +26,35 @@ jobs:
         run: |
           go run hello.go
 
-  go-make:
-    needs: [build-prereqs]
-    runs-on: self-hosted
-    container:
-      image: golang:1.14-buster
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
       - name: Make All
         run: |
           make all
 
-
-  go-code-builds:
-    needs: [build-prereqs]
-    runs-on: self-hosted
-    container:
-      image: golang:1.14-buster
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
       - name: Run Console App
         run: |
-          go run console_code1/console-code.go 3 4
+          go run console_code/console-code.go 3 4
 
-
-  uche-algorithm-tests:
-    needs: [build-prereqs]
-    runs-on: self-hosted
-    container:
-      image: golang:1.14-buster
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Run Two Sum
+      - name: Run Two Sum Algorithm
         run: |
           cd datastructure_algorithms/two_sum/
           go run twosum.go
           go test -v -run TestTwoSum1
           go test -v -run TestTwoSum2
+
+      - name: Slack Notification Success
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_TITLE: Build Succeeded
+            SLACK_COLOR: '#00cc00'
+            SLACK_MESSAGE: 'Build Passed. Merge and Deploy'
+
+      - name: Slack Notification Failure
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_TITLE: Build Failed
+            SLACK_COLOR: '#ff0000'
+            SLACK_MESSAGE: 'Build Failed. Do not deploy this build'
