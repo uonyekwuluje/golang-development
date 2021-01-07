@@ -29,3 +29,19 @@ jobs:
       - name: Run Console App
         run: |
           go run console_code/console-code.go 3 4
+
+
+  uche-algorithm-tests:
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Two Sum
+        run: |
+          go run datastructure_algorithms/two_sum/twosum.go
+          go test -v -run datastructure_algorithms/two_sum/TestTwoSum1
+          go test -v -run datastructure_algorithms/two_sum/TestTwoSum2
