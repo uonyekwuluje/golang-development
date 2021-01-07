@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Hello World
         run: |
-          go run hello1.go
+          go run hello.go
 
   go-make:
     needs: [build-prereqs]
