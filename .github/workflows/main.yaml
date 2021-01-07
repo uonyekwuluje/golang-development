@@ -16,6 +16,20 @@ jobs:
         run: |
           go run hello.go
 
+  go-make:
+    needs: [build-prereqs]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Make All
+        run: |
+          make all
+
 
   go-code-builds:
     needs: [build-prereqs]
