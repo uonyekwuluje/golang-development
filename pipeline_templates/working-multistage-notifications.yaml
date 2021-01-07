@@ -26,15 +26,53 @@ jobs:
         run: |
           go run hello.go
 
+      #- name: PR Slack Notification
+      #  uses: rtCamp/action-slack-notify@v2
+      #  env:
+      #      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #      SLACK_TITLE: Begining Pull Request Test
+
+  go-make:
+    needs: [build-prereqs]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Make All
         run: |
           make all
+
+
+  go-code-builds:
+    needs: [build-prereqs]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
       - name: Run Console App
         run: |
           go run console_code/console-code.go 3 4
 
-      - name: Run Two Sum Algorithm
+
+  uche-algorithm-tests:
+    needs: [build-prereqs]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Two Sum
         run: |
           cd datastructure_algorithms/two_sum/
           go run twosum1.go
@@ -42,7 +80,17 @@ jobs:
           go test -v -run TestTwoSum2
 
 
-      - name: Slack Notification Success
+  slack-notifications:
+    #needs: [go-make,go-code-builds,uche-algorithm-tests]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Slack Notifications
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -50,7 +98,7 @@ jobs:
             SLACK_TITLE: Build Succeeded
             SLACK_COLOR: green
 
-      - name: Slack Notification Failure
+      - name: Slack Notifications
         if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
         env:
