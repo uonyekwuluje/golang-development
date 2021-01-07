@@ -38,7 +38,7 @@ jobs:
 
       - name: Make All
         run: |
-          make1 all
+          make all
 
 
   go-code-builds:
@@ -53,7 +53,7 @@ jobs:
 
       - name: Run Console App
         run: |
-          go run console_code1/console-code.go 3 4
+          go run console_code/console-code.go 3 4
 
 
   uche-algorithm-tests:
@@ -69,6 +69,6 @@ jobs:
       - name: Run Two Sum
         run: |
           cd datastructure_algorithms/two_sum/
-          go run twosum1.go
+          go run twosum.go
           go test -v -run TestTwoSum1
           go test -v -run TestTwoSum2
