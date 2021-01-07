@@ -72,3 +72,20 @@ jobs:
           go run twosum1.go
           go test -v -run TestTwoSum1
           go test -v -run TestTwoSum2
+
+
+  slack-notifications:
+    needs: [go-make,go-code-builds,uche-algorithm-tests]
+    runs-on: self-hosted
+    container:
+      image: golang:1.14-buster
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Slack Notifications
+        uses: rtCamp/action-slack-notify@v2
+        env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
