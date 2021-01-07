@@ -1,4 +1,4 @@
-# golang-development
+# Golang-Development
 Go Development
 
 ## Install Go
