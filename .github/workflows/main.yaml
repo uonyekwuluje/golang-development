@@ -1,7 +1,7 @@
 name: Golang-Builds
 
 on: 
- push:
+  push:
     branches:
       - main
   pull_request:
