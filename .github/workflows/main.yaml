@@ -75,7 +75,7 @@ jobs:
 
 
   slack-notifications:
-    needs: [go-make,go-code-builds,uche-algorithm-tests]
+    #needs: [go-make,go-code-builds,uche-algorithm-tests]
     runs-on: self-hosted
     container:
       image: golang:1.14-buster
