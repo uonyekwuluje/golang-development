@@ -13,7 +13,7 @@ on:
   status: {}
 
 jobs:
-  build-prereqs:
+  build:
     runs-on: self-hosted
     container:
       image: golang:1.14-buster   
@@ -37,10 +37,9 @@ jobs:
       - name: Run Two Sum Algorithm
         run: |
           cd datastructure_algorithms/two_sum/
-          go run twosum1.go
+          go run twosum.go
           go test -v -run TestTwoSum1
           go test -v -run TestTwoSum2
-
 
       - name: Slack Notification Success
         if: ${{ success() }}
@@ -48,7 +47,7 @@ jobs:
         env:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
             SLACK_TITLE: Build Succeeded
-            SLACK_COLOR: green
+            SLACK_COLOR: #00cc00
 
       - name: Slack Notification Failure
         if: ${{ failure() }}
@@ -56,4 +55,4 @@ jobs:
         env:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
             SLACK_TITLE: Build Failed
-            SLACK_COLOR: red
+            SLACK_COLOR: #ff0000
