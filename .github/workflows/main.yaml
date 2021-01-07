@@ -69,6 +69,6 @@ jobs:
       - name: Run Two Sum
         run: |
           cd datastructure_algorithms/two_sum/
-          go run twosum.go
+          go run twosum1.go
           go test -v -run TestTwoSum1
           go test -v -run TestTwoSum2
