@@ -1,6 +1,12 @@
 name: Golang-Builds
 
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build-prereqs:
@@ -43,7 +49,7 @@ jobs:
 
       - name: Run Console App
         run: |
-          go run console_code/console-code.go 3 4
+          go run console_code1/console-code.go 3 4
 
 
   uche-algorithm-tests:
