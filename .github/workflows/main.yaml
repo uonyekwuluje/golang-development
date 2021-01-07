@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Hello World
         run: |
-          go run hello.go
+          go run hello1.go
 
   go-make:
     needs: [build-prereqs]
@@ -34,7 +34,7 @@ jobs:
 
       - name: Make All
         run: |
-          make all
+          make1 all
 
 
   go-code-builds:
@@ -49,7 +49,7 @@ jobs:
 
       - name: Run Console App
         run: |
-          go run console_code/console-code.go 3 4
+          go run console_code1/console-code.go 3 4
 
 
   uche-algorithm-tests:
