@@ -27,4 +27,17 @@ func main() {
   fmt.Println(name2)
   fmt.Println(employee)
   fmt.Println(employee["Sunday"])
+  farray()
+}
+
+
+func farray() {
+   var nm [5]int
+   fmt.Println("Testing Array")
+   nm[0] = 4
+   x := []int{3,4,5,6,7,9,23}
+   fmt.Println(x)
+   fmt.Println(x[2:5])
+   x = append(x,89,90)
+   fmt.Println(x)
 }
