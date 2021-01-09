@@ -24,8 +24,7 @@ jobs:
           make all
 
 
-
-  go-cheetsheet:
+  go-sampleproblems:
     runs-on: 'ubuntu-latest'
     needs: build-prereqs
     steps:
@@ -36,15 +35,23 @@ jobs:
         run: |
           go run file_processing/filep.go
 
+
+  go-cheetsheet:
+    runs-on: 'ubuntu-latest'
+    needs: build-prereqs
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Run Console App
         run: |
           go run console_code/console-code.go 3 4
 
 
 
+
   algorithms:
     runs-on: 'ubuntu-latest'
-    needs: build-prereqs
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
