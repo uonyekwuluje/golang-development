@@ -62,3 +62,17 @@ jobs:
           go run twosum.go
           go test -v -run TestTwoSum1
           go test -v -run TestTwoSum2
+
+
+
+
+  deploy:
+    runs-on: 'ubuntu-latest'
+    needs: [algorithms,go-cheetsheet,go-sampleproblems]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Deploy Artifacts
+        run: |
+          echo "Code Pipeline Completed
