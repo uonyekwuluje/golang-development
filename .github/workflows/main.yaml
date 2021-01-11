@@ -51,6 +51,19 @@ jobs:
         run: |
           go run console_code/console-code.go 3 4
 
+  go-unittests:
+    runs-on: 'ubuntu-latest'
+    needs: build-prereqs
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Sample Go Unit Tests
+        run: |
+          cd unit_tests
+          go test -v -cover
+
+
 
 
 
