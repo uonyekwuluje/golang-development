@@ -92,7 +92,7 @@ jobs:
 
   deploy:
     runs-on: 'ubuntu-latest'
-    needs: [algorithms,go-cheetsheet,go-sampleproblems]
+    needs: [algorithms,go-cheetsheet,go-sampleproblems,go-unittests]
     steps:
       - name: Deploy Artifacts
         run: |
