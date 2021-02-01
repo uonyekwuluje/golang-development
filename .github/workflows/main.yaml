@@ -17,11 +17,11 @@ jobs:
         if: ${{ failure() }} # only run when this job is failed.
         name: Create Issue Action
         with:
-    	  title: Linter Failed
-	  token: ${{secrets.GITHUB_TOKEN}}
-	  assignees: ${{github.actor}}
-	  labels: refactoring-needed, help needed
-	  body: Workflow failed for commit ${{github.sha}}
+           title: Linter Failed
+           token: ${{secrets.GITHUB_TOKEN}}
+           assignees: ${{github.actor}}
+           labels: refactoring-needed, help needed
+           body: Workflow failed for commit ${{github.sha}}
 
 
   #go-sampleproblems:
