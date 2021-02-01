@@ -3,6 +3,8 @@ package main
 import (
    "fmt"
    "reflect"
+   "io/ioutil"
+   "log"
 )
 
 // Global Variables
@@ -24,6 +26,34 @@ func main(){
    fmt.Println("Const is => ",SUMINIT)
    dataTypes()
    globalTest()
+   operations()
+   sysops1()
+}
+
+
+func sysops1() {
+   fmt.Printf("\nFile Operations\n")
+   fmt.Printf("----------------------\n")
+   files, err := ioutil.ReadDir("./")
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for _, f := range files {
+            fmt.Println(f.Name())
+    }
+}
+
+
+func operations() {
+  fmt.Printf("\nTesting Operations\n")
+  fmt.Printf("----------------------\n")
+  var x, y, z = 7,5,8
+  fmt.Println("You Just Entered ",x,y)
+  fmt.Println("7 / 5 =>",x/y," remainder ",x%y)
+  fmt.Println(x < y && x > z)
+  fmt.Println(x < y || x > z)
+  fmt.Println(!(x == y && x > z))
 }
 
 

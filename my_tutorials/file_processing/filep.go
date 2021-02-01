@@ -4,6 +4,7 @@ import (
     "fmt"
     "os"
     "io"
+    "./directoryOps"
 )
 
 var filename = "input-log.txt"
@@ -13,6 +14,13 @@ func main() {
    writeFile()
    readFile()
    deleteFile()
+   dirOps()
+}
+
+
+func dirOps() {
+  fmt.Println("Testing Directory Operations")
+  dops.ListRootDirectory()
 }
 
 
