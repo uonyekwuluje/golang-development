@@ -34,7 +34,7 @@ func main(){
 func sysops1() {
    fmt.Printf("\nFile Operations\n")
    fmt.Printf("----------------------\n")
-   files, err := ioutil.ReadDir("./bb")
+   files, err := ioutil.ReadDir("./")
     if err != nil {
         log.Fatal(err)
     }
