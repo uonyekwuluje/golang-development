@@ -1,7 +1,7 @@
 array_process:
-	go run array_maps/array_process.go
+	go run my_tutorials/array_maps/array_process.go
 
 counter_process:
-	go run array_maps/fcounter.go
+	go run my_tutorials/array_maps/fcounter.go
 
 all: array_process counter_process
