@@ -56,6 +56,15 @@ jobs:
             SLACK_COLOR: '#ff0000'
             SLACK_MESSAGE: 'Build Failed. Do not deploy this build'
 
+      - uses: nashmaniac/create-issue-action@v1.1
+        if: ${{ failure() }} # only run when this job is failed.
+        name: Create Issue Action
+        with:
+          title: GO-Conditions Build Failed
+          token: ${{secrets.GITHUB_TOKEN}}
+          assignees: ${{github.actor}}
+          labels: build-error
+          body: Workflow failed for commit ${{github.sha}}
 
 
 
@@ -88,3 +97,13 @@ jobs:
             SLACK_TITLE: GO-Algorithms Build Failed
             SLACK_COLOR: '#ff0000'
             SLACK_MESSAGE: 'Build Failed. Do not deploy this build'
+
+      - uses: nashmaniac/create-issue-action@v1.1
+        if: ${{ failure() }} # only run when this job is failed.
+        name: Create Issue Action
+        with:
+          title: GO-Conditions Build Failed
+          token: ${{secrets.GITHUB_TOKEN}}
+          assignees: ${{github.actor}}
+          labels: build-error
+          body: Workflow failed for commit ${{github.sha}}
