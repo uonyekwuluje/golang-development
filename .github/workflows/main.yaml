@@ -35,7 +35,7 @@ jobs:
 
       - name: Go Conditions
         run: |
-           go run my_tutorials/conditionals/main.go1
+           go run my_tutorials/conditionals/main.go-orig
         shell: bash {0}
 
 
