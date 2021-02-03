@@ -6,6 +6,7 @@ func main() {
   stringProcess()
   dictMaps()
   findSmallest()
+  dictMaps1()
 }
 
 func stringProcess() {
@@ -42,3 +43,19 @@ func findSmallest() {
   fmt.Println("Smallest Number => ",smallest)
 }
 
+
+
+func dictMaps1() {
+  strDict := map[string]string{"Japan": "Tokyo", "China": "Beijing", "Canada": "Ottawa"}
+  for index, element := range strDict {
+     fmt.Println("Index :", index, " Element :", element)
+  }
+
+  for key := range strDict {
+    fmt.Println(key)
+  }
+
+  for _, value := range strDict {
+    fmt.Println(value)
+  }
+}

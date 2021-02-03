@@ -1,6 +1,16 @@
 name: GO-Builds
 
-on: [push] 
+on: 
+  push: 
+    branches: 
+    - main 
+    - staging
+    - develop 
+  pull_request: 
+    branches: 
+    - main 
+    - staging 
+    - develop
 
 jobs:
   go-script:
@@ -13,4 +23,29 @@ jobs:
         run: |
            go version
            go run hello.go
+        shell: bash {0}
+
+  go-conditions:
+    run-on: 'go'
+    needs: go-script
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Go Conditions
+        run: |
+           go run my_tutorials/conditionals/main.go
+        shell: bash {0}
+
+
+  go-algorithms:
+    run-on: 'go'
+    needs: go-script
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Minutes To Seconds
+        run: |
+           go run datastructure_algorithms/convert_mins_secs/main.go
         shell: bash {0}
