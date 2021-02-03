@@ -14,7 +14,7 @@ on:
 
 jobs:
   go-script:
-    runs-on: 'go'
+    runs-on: 'cicd'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
 
 
   go-conditions:
-    runs-on: 'go'
+    runs-on: 'cicd'
     needs: go-script
     steps:
       - name: Checkout Repository
@@ -40,7 +40,7 @@ jobs:
 
 
   go-algorithms:
-    runs-on: 'go'
+    runs-on: 'cicd'
     needs: go-script
     steps:
       - name: Checkout Repository
