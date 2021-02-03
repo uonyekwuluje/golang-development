@@ -11,5 +11,6 @@ jobs:
 
       - name: Go Scripts 
         run: |
-           go run hello.go
+           echo $PATH
+           #go run hello.go
         shell: bash {0}
