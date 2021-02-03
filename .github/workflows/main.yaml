@@ -11,5 +11,7 @@ jobs:
 
       - name: Go Scripts 
         run: |
-           go run hello.go
+           go version
+           env
+           #go run hello.go
         shell: bash {0}
