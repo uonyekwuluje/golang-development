@@ -1,4 +1,4 @@
-name: CI-Builds
+name: GO-Builds
 
 on: [push] 
 
@@ -11,5 +11,5 @@ jobs:
 
       - name: Go Scripts 
         run: |
-           go run hello.go
-        #shell: bash {0}
+           env
+        shell: bash {0}
