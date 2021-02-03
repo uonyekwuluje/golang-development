@@ -11,6 +11,5 @@ jobs:
 
       - name: Go Scripts 
         run: |
-           whoami
-           #go run hello.go
-        shell: bash {0}
+           go run hello.go
+        #shell: bash {0}
