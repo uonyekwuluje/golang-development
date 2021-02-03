@@ -3,18 +3,6 @@ name: CI-Builds
 on: [push] 
 
 jobs:
-  shell-script:
-    runs-on: 'go'
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Test Shell Script 
-        shell: bash {0}
-        run: |
-           ls
-
-
   go-script:
     runs-on: 'go'
     steps:
@@ -24,4 +12,4 @@ jobs:
       - name: Go Scripts 
         shell: bash {0}
         run: |
-           ls
+           go run hello.go
