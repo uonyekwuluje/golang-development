@@ -1,4 +1,4 @@
-name: GO-Builds
+name: GO-CICD-Builds
 
 on: 
   push: 
