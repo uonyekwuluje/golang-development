@@ -25,8 +25,9 @@ jobs:
            go run hello.go
         shell: bash {0}
 
+
   go-conditions:
-    run-on: 'go'
+    runs-on: 'go'
     needs: go-script
     steps:
       - name: Checkout Repository
@@ -39,7 +40,7 @@ jobs:
 
 
   go-algorithms:
-    run-on: 'go'
+    runs-on: 'go'
     needs: go-script
     steps:
       - name: Checkout Repository
