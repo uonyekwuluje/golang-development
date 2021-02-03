@@ -10,6 +10,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Go Scripts 
-        shell: bash {0}
         run: |
-           go run hello.go
+           env
+           #go run hello.go
+        shell: bash {0}
