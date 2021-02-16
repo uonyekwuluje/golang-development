@@ -33,6 +33,7 @@ jobs:
 
   test-val:
     runs-on: 'ubuntu-latest'
+    needs: build
     steps:
       - name: Test Values 
         run: |
