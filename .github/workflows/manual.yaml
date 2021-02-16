@@ -1,14 +1,14 @@
-name: GO-CICD-Build
+name: GO-Manual-Build
 
 on: 
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      Environment:
+        description: 'Build Environment'     
         required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'  
+        default: 'prod'
+      Version:
+        description: 'Deploy Version'  
         required: false
 
 
