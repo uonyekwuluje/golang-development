@@ -1,6 +1,10 @@
 name: GO-Manual-Build
 
 on: 
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+    - main
   workflow_dispatch:
     inputs:
       Environment:
@@ -28,29 +32,3 @@ jobs:
            echo "Hello World"
         shell: bash {0}
 
-
-  #go-conditions:
-  #  runs-on: 'cicd'
-  #  needs: go-script
-  #  steps:
-  #    - name: Checkout Repository
-  #      uses: actions/checkout@v2
-
-  #    - name: Go Conditions
-  #      run: |
-  #         go run my_tutorials/conditionals/main.go
-  #      shell: bash {0}
-
-
-
-  #go-algorithms:
-  #  runs-on: 'cicd'
-  #  needs: go-script
-  #  steps:
-  #    - name: Checkout Repository
-  #      uses: actions/checkout@v2
-
-  #    - name: Minutes To Seconds
-  #      run: |
-  #         go run datastructure_algorithms/convert_mins_secs/main.go
-  #      shell: bash {0}
