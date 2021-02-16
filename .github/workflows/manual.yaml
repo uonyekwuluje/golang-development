@@ -7,11 +7,11 @@ on:
     - main
   workflow_dispatch:
     inputs:
-      Environment:
+      buildEnvironment:
         description: 'Build Environment'     
         required: true
         default: 'prod'
-      Version:
+      buildVersion:
         description: 'Deploy Version'  
         required: false
 
@@ -19,7 +19,7 @@ on:
 
 
 jobs:
-  go-script:
+  build:
     runs-on: 'ubuntu-latest'
     steps:
       - name: Checkout Repository
@@ -27,8 +27,15 @@ jobs:
 
       - name: Go Scripts 
         run: |
-           #go version
-           #go run hello.go
            echo "Hello World"
         shell: bash {0}
 
+
+  test-val:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Test Values 
+        run: |
+           echo "Environment: ${{ github.event.inputs.buildEnvironment }}"
+           echo "Version: ${{ github.event.inputs.buildVersion }}" 
+        shell: bash {0}
