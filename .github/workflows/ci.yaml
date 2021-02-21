@@ -1,4 +1,4 @@
-name: GOLang-Build
+name: GOLang-Daily-Build
 
 on:
   schedule:    
