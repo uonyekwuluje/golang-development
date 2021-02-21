@@ -13,13 +13,16 @@ on:
   #    - main
 
 env:
-  GO_VERSION: 1.15.x # [1.14.x, 1.15.x]
+  GO_VERSION: 1.15.x #[1.14.x, 1.15.x]
 
 
 jobs:
   shell-script:
     runs-on: 'ubuntu-latest'
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Shell Inline Script 
         run: |
            echo "Hello World"
