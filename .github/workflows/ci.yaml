@@ -2,7 +2,7 @@ name: GOLang-Daily-Build
 
 on:
   push:
-  pull_requests: 
+  pull_request: 
   schedule:    
   - cron: "*/5 * * * *" 
   #push:
