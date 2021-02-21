@@ -1,10 +1,8 @@
-name: GOLang-Daily-Build
+name: Daily-Build
 
-on:
-  push:
-  pull_request: 
+on: 
   schedule:    
-  - cron: "*/5 * * * *" 
+  - cron: '*/5 * * * *' 
   #push:
   #  branches:
   #    - main
