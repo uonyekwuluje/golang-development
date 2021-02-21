@@ -1,6 +1,8 @@
 name: GOLang-Daily-Build
 
 on:
+  push:
+  pull_requests: 
   schedule:    
   - cron: "*/5 * * * *" 
   #push:
