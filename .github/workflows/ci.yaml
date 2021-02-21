@@ -23,6 +23,11 @@ jobs:
            echo "Hello World"
         shell: bash {0}
 
+      - name: Make Script
+        run: make all
+        shell: bash {0}
+
+
   go-script:
     runs-on: 'ubuntu-latest'
     steps:
