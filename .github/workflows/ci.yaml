@@ -27,10 +27,6 @@ jobs:
            echo "Hello World"
         shell: bash {0}
 
-      - name: Make Script
-        run: make all
-        shell: bash {0}
-
 
   go-script:
     runs-on: 'ubuntu-latest'
@@ -46,5 +42,6 @@ jobs:
       - name: Go Scripts 
         run: go run hello.go
 
-      - name: Go Array Types
-        run: go run my_tutorials/array_maps/main.go
+      - name: Make Go Script
+        run: make all
+        shell: bash {0}
