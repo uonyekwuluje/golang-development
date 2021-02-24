@@ -45,3 +45,6 @@ jobs:
 
       - name: Go Scripts 
         run: go run hello.go
+
+      - name: Go Array Types
+        run: go run my_tutorials/array_maps/main.go

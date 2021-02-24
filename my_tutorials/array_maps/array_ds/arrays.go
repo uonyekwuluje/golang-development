@@ -16,40 +16,32 @@ func StringProcess() {
   fmt.Println(len(string_test))
 }
 
-func dictMaps() {
-  numfreq := make(map[string]int)
-  numfreq["Nigeria"] = 80
-  numfreq["USA"] = 5
-  numfreq["Zimbabwe"] = 5
-  fmt.Println(numfreq)
-  delete(numfreq,"USA")
-  fmt.Println(numfreq)
-  el,ok := numfreq["USA"]
-  fmt.Println(el,ok)
+
+func IntArrayBasics() {
+  fmt.Println("\nArray Basics")
+  fmt.Println("---------------")
+  var num = []int{3,4}
+  fmt.Printf("Current Array is of Lenght => %d\n",len(num))
+  num = append(num, 56)
+  fmt.Printf("Current Array is of Lenght => %d\n",len(num))
+  a := []int{45,23}
+  b := []int{145,423}
+  num = append(num, a...)
+  num = append(num, b...)
+  fmt.Printf("Current Array is of Lenght => %d\n",len(num))
 }
 
-func findSmallest() {
-  nums := []int{4,1,6,9,90}
-  smallest := nums[0]
-  for _, element := range nums{
-    if element < smallest{smallest = element}
+func StringToArray() {
+  fmt.Println("\nArray Manipulation")
+  fmt.Println("--------------------")
+
+  var tstring = "Hello Golang"
+  var tarry = []string{}
+  fmt.Printf("New String %s is of Lenght %d\n",tstring,len(tstring))
+  for x:=0; x<len(tstring); x++ {
+    fmt.Println("Char => ",string(tstring[x]))
+    tarry = append(tarry, string(tstring[x]))
   }
-  fmt.Println("Smallest Number => ",smallest)
-}
-
-
-
-func dictMaps1() {
-  strDict := map[string]string{"Japan": "Tokyo", "China": "Beijing", "Canada": "Ottawa"}
-  for index, element := range strDict {
-     fmt.Println("Index :", index, " Element :", element)
-  }
-
-  for key := range strDict {
-    fmt.Println(key)
-  }
-
-  for _, value := range strDict {
-    fmt.Println(value)
-  }
+  fmt.Println("New Array => ",tarry)
+  fmt.Println(tarry[0])
 }
