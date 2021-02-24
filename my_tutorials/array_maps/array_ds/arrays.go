@@ -1,15 +1,9 @@
-package main
+package arrays
 
 import ("fmt")
 
-func main() {
-  stringProcess()
-  dictMaps()
-  findSmallest()
-  dictMaps1()
-}
 
-func stringProcess() {
+func StringProcess() {
   var names[3] string
   var string_test = "Welcome Fizz Buzz"
 
