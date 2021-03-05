@@ -7,6 +7,11 @@ import (
 	"github.com/slack-go/slack"
 )
 
+const (
+	actionApprove = "approve"
+	actionReject  = "reject"
+)
+
 
 func main() {
 
@@ -28,11 +33,6 @@ Loop:
 			case *slack.MessageEvent:
 				fmt.Printf("Message: %v\n", ev)
                                 respond(rtm, ev)
-				/*info := rtm.GetInfo()
-				prefix := fmt.Sprintf("<@%s> ", info.User.ID)
-				if ev.User != info.User.ID && strings.HasPrefix(ev.Text, prefix) {
-					respond(rtm, ev, prefix)
-				}*/
 
 			case *slack.RTMError:
 				fmt.Printf("Error: %s\n", ev.Error())
@@ -76,10 +76,29 @@ func respond(rtm *slack.RTM, msg *slack.MessageEvent) {
 		response = "Good. How are you?"
 		rtm.SendMessage(rtm.NewOutgoingMessage(response, msg.Channel))
 	} else if buildMessage[text] {
-                response = "Bulding noe"
-                rtm.SendMessage(rtm.NewOutgoingMessage(response, msg.Channel))
+	        attachment := slack.Attachment{
+                   Color: "#36a64f",
+                   CallbackID: "devdeploy",
+		   Text:    "Deploying To Production Environment for `V23.456.7`",
+                   Actions: []slack.AttachmentAction{
+                     {
+                       Name: actionApprove,
+                       Text: "Approve",
+                       Type: "button",
+                       Value: "approve",
+                       Style: "primary",
+                     },
+                     {
+                       Name: actionReject,
+                       Text: "Reject",
+                       Type: "button",
+                       Value: "reject",
+                       Style: "danger",
+                     },
+                   },
+                }
+	        rtm.PostMessage(msg.Channel, slack.MsgOptionAttachments(attachment))
         }
-
 
 
         /*action := msg.Attachments
@@ -89,31 +108,3 @@ func respond(rtm *slack.RTM, msg *slack.MessageEvent) {
         }
         fmt.Printf("%s\n", string(prettyJSON))*/
 }
-
-/*
-func respond(rtm *slack.RTM, msg *slack.MessageEvent, prefix string) {
-        var response string
-        text := msg.Text
-        text = strings.TrimPrefix(text, prefix)
-        text = strings.TrimSpace(text)
-        text = strings.ToLower(text)
-
-        acceptedGreetings := map[string]bool{
-                "what's up?": true,
-                "hey!":       true,
-                "yo":         true,
-        }
-        acceptedHowAreYou := map[string]bool{
-                "how's it going?": true,
-                "how are ya?":     true,
-                "feeling okay?":   true,
-        }
-
-        if acceptedGreetings[text] {
-                response = "What's up buddy!?!?!"
-                rtm.SendMessage(rtm.NewOutgoingMessage(response, msg.Channel))
-        } else if acceptedHowAreYou[text] {
-                response = "Good. How are you?"
-                rtm.SendMessage(rtm.NewOutgoingMessage(response, msg.Channel))
-        }
-}*/
