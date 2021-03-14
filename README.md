@@ -40,3 +40,5 @@ after the build, execute
 * [Go Tutorialspoint](https://www.tutorialspoint.com/go/index.htm)
 * [Golang Programs](https://www.golangprograms.com/go-language.html)
 * [Go Web Sample Code](https://github.com/PacktPublishing/Go-Web-Development-Cookbook)
+* [JSON to Struct] (https://mholt.github.io/json-to-go/)
+* [Playground] (https://play.golang.org/)
