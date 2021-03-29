@@ -35,6 +35,6 @@ func helloWorld(w http.ResponseWriter, r *http.Request){
 func main() {
     http.HandleFunc("/", helloWorld)
 
-    fmt.Println("[INFO] Server listening on PORT 8080")
+    fmt.Println("[INFO] : Server listening on PORT 8080")
     http.ListenAndServe(":8080", nil)
 }
