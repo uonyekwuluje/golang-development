@@ -42,7 +42,7 @@ jobs:
       with:
         go-version: ${{ env.GO_VERSION }}
 
-    - name: Go Scripts 
+    - name: Go Test Script
       run: go run hello.go
 
     - name: Make Go Script
