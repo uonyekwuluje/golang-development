@@ -5,11 +5,10 @@ import (
 )
 
 func main() {
-  x := 45
-  fmt.Println(testParm(x))
-}
-
-
-func testParm(y int) int {
-  return y+1
+   xs := []int{4,6,8,2,8}
+   total := 0
+   for _, v := range xs {
+      total += v
+   }
+  fmt.Println("Total => ",total)
 }
