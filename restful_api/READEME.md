@@ -1,5 +1,12 @@
 ## Restful Documents
 * https://tutorialedge.net/golang/creating-restful-api-with-golang/
+* https://devqa.io/curl-sending-api-requests/
+* https://blog.golang.org/json
+* https://gobyexample.com/json
+* https://developpaper.com/golang-uses-json-format-to-add-delete-query-and-modify/
+* https://tutorialedge.net/golang/parsing-json-with-golang/
+* https://tutorialedge.net/golang/creating-restful-api-with-golang/  [*****]
+
 
 ## List All
 ```
