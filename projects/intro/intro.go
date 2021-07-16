@@ -10,5 +10,7 @@ func Sum(x int, y int) int {
 
 func main() {
   fmt.Println("Hello")
+  fmt.Println("Hello")
+  fmt.Println("Hello")
   Sum(5,5)
 }
