@@ -4,6 +4,11 @@ import (
   "fmt"
 )
 
+func Sum(x int, y int) int {
+  return x + y
+}
+
 func main() {
-  fmt.Println("Just Kidding Man")
+  fmt.Println("Hello")
+  Sum(5,5)
 }
