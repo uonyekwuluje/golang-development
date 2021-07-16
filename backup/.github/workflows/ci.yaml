@@ -1,6 +1,9 @@
 name: Daily-Build
 
 on: 
+  #schedule:    
+  #- cron: '0 0 * * *' #end of day 
+  #- cron: '*/5 * * * *' #every 5 minutes 
   push:
     branches:
     - main
@@ -27,6 +30,7 @@ jobs:
       run: |
          echo "Hello World"
 
+
   go-script:
     runs-on: 'ubuntu-latest'
     steps:
@@ -43,19 +47,3 @@ jobs:
 
     - name: Make Go Script
       run: make all
-
-
-  projects:
-    runs-on: 'golang'
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Get GoLang 
-      uses: actions/setup-go@v2
-      with:
-        go-version: ${{ env.GO_VERSION }}
-
-    - name: Sonaqube Scan
-      run: |
-          /opt/sonar-scanner/bin/sonar-scanner -Dsonar.host.url=${{ secrets.SONAR_HOST }} -Dsonar.login=${{ secrets.SONAR_TOKEN }} 
