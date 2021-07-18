@@ -2,8 +2,8 @@ package main
 
 import (
  "fmt"
- "./array_ds"
- "./maps_ds"
+ "array_maps/array_ds"
+ "array_maps/maps_ds"
 )
 
 func main() {
